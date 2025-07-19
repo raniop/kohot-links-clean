@@ -2,20 +2,27 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+
+// ✅ קובץ apple-app-site-association
 app.get('/.well-known/apple-app-site-association', (req, res) => {
-  res.setHeader('Content-Type', 'application/json'); // כפייה לתגובה תקינה
+  res.setHeader('Content-Type', 'application/json');
   res.sendFile(path.join(__dirname, 'public', '.well-known', 'apple-app-site-association'));
 });
 
-// משרת את כל הקבצים שבתוך public כולל .well-known
+// ✅ דינמיקת הזמנה
+app.get('/invite/:id', (req, res) => {
+  res.send(`💡 Invite link received! ID = ${req.params.id}`);
+});
+
+// ✅ קבצים סטטיים
 app.use(express.static(path.join(__dirname, 'public')));
 
-// מענה ל־/ כדי שלא תקבל Cannot GET /
+// ✅ דף ברירת מחדל
 app.get('/', (req, res) => {
   res.send('🚀 Kohot Links Server is running!');
 });
 
-// מאזין על הפורט של Railway או 8080 ברירת מחדל
+// ✅ הפעלת השרת
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`✅ Server running on http://localhost:${port}`);
