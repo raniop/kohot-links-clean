@@ -1,23 +1,12 @@
 {
-  "name": "kohot-links",
+  "name": "kohot-links-clean",
   "version": "1.0.0",
+  "description": "Link handler for kohot.co",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/raniop/kohot-links-clean.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/raniop/kohot-links-clean/issues"
-  },
-  "homepage": "https://github.com/raniop/kohot-links-clean#readme",
-  "description": ""
+    "express": "^4.18.2"
+  }
 }
